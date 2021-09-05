@@ -1,8 +1,19 @@
 const express = require("express");
-const app = express();
+const App = express();
 const morgan = require('morgan')
 const cors = require('cors')
 require("dotenv").config();
+
+const {app, BrowserWindow} = require('electron')
+
+function createWindow() {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600
+  })
+
+  win.loadFile('../client/index.html')
+}
 
 const routes = require('./routes')
 
@@ -16,11 +27,15 @@ const dns = require("dns");
 /**
  * App usage middlewares
  */
-app.use(express.json())
-app.use(morgan('dev'))
-app.use(cors())
-app.use(routes)
+App.use(express.json())
+App.use(morgan('dev'))
+App.use(cors())
+App.use(routes)
 
-app.listen(process.env.PORT, async () => {
+App.listen(process.env.PORT, async () => {
   console.log(`server is on and listening on port ${process.env.PORT}`);
 });
+
+app.whenReady().then(() => {
+  createWindow()
+})

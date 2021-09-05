@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "electron src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ricdotnet",
@@ -12,8 +12,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "electron": "^14.0.0",
+    "electron-packager": "^15.3.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "2.0.12"
   }
 }

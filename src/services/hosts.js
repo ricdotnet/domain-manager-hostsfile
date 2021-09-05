@@ -3,13 +3,16 @@ const fs = require('fs').promises;
 
 const { replace, reset } = require('../../assets/stubs');
 
+const config = require('../config')
+let location = config.hostsLoc[os.platform()]
+
 /**
  * Get the current hosts file content.
  * @returns hostsFile
  */
 async function getHosts() {
   try {
-    let data = await fs.readFile('/etc/hosts');
+    let data = await fs.readFile(location);
     return data.toString();
   } catch (e) {
     return e;
@@ -33,7 +36,7 @@ async function addHosts(domain) {
  * @param {string // blob} content 
  */
 async function saveHosts(content) {
-  return await fs.writeFile('/etc/hosts', content)
+  return await fs.writeFile(location, content)
 }
 
 /**
@@ -41,7 +44,7 @@ async function saveHosts(content) {
  */
 async function resetHosts() {
   let data = await reset();
-  return await fs.writeFile('/etc/hosts', data);
+  return await fs.writeFile(location, data);
 }
 
 module.exports = {
