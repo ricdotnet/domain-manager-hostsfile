@@ -29,6 +29,14 @@ async function addHosts(domain) {
 }
 
 /**
+ * Saves the hosts file with the content sent as a parameter.
+ * @param {string // blob} content 
+ */
+async function saveHosts(content) {
+  return await fs.writeFile('/etc/hosts', content)
+}
+
+/**
  * Resets the hosts file to its original state.
  */
 async function resetHosts() {
@@ -40,4 +48,5 @@ module.exports = {
   getHosts,
   addHosts,
   resetHosts,
+  saveHosts
 };
