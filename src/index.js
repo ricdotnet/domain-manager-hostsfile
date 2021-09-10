@@ -21,11 +21,11 @@ function createWindow() {
     height: 600
   })
 
-  if(os.platform() === 'linux') {
-    win.loadFile('../client/index.html')
-  } else {
+  // if(os.platform() === 'linux') {
+  //   win.loadFile('../client/index.html')
+  // } else {
     win.loadFile('./client/index.html')
-  }
+  // }
 }
 
 const routes = require('./routes')

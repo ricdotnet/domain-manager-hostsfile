@@ -20,6 +20,8 @@ async function getHosts() {
   });
   let data = await response.json();
 
+  console.log(data)
+
   area.value = data.message;
 }
 
