@@ -1,6 +1,6 @@
 module.exports = {
   hostsLoc: {
-    win32: 'C:\\windows\\system32\\etc\\drivers\\hosts',
+    win32: 'C:\\Windows\\System32\\drivers\\etc\\hosts',
     darwin: '',
     linux: '/etc/hosts'
   }
