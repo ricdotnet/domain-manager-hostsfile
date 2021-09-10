@@ -27,7 +27,7 @@ async function saveHosts() {
   let body = { content: area.value };
 
   if (body === undefined || body === '')
-    return alert('you cant save empy hosts files...');
+    return alert('you cant save empty hosts files...');
 
   // let formData = new FormData()
   // formData.append('body', body)
