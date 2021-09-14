@@ -20,6 +20,8 @@ async function getHosts() {
   });
   let data = await response.json();
 
+  console.log('Getting the hosts file content....')
+
   area.value = data.message;
 }
 
@@ -29,8 +31,7 @@ async function saveHosts() {
   if (body === undefined || body === '')
     return alert('you cant save empty hosts files...');
 
-  // let formData = new FormData()
-  // formData.append('body', body)
+  console.log('saving the hosts file content....')
 
   fetch('http://localhost:3000/panel/save', {
     method: 'POST',
