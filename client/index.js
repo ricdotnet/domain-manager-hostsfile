@@ -31,9 +31,6 @@ async function saveHosts() {
   if (body === undefined || body === '')
     return alert('you cant save empty hosts files...');
 
-  console.log('saving the hosts file content....')
-  console.log('this here...')
-
   fetch('http://localhost:3000/panel/save', {
     method: 'POST',
     body: JSON.stringify(body),
